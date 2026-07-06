@@ -6,7 +6,8 @@ import { RecommendationsService } from './recommendations.service';
 
 @Injectable()
 export class StaticRecommendationsService implements RecommendationsService {
-  getAll(): Observable<Recommendation[]> {
-    return of(RECOMMENDATIONS);
+  getAll(limit?: number): Observable<Recommendation[]> {
+    const recommendations = limit !== undefined ? RECOMMENDATIONS.slice(0, limit) : RECOMMENDATIONS;
+    return of(recommendations);
   }
 }

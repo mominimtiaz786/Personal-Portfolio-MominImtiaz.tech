@@ -28,5 +28,5 @@ export class HomeComponent {
 
   readonly stats = STATS;
   readonly projects$ = this.projectsService.getAll(4);
-  readonly recommendations$ = this.recommendationsService.getAll();
+  readonly recommendations$ = this.recommendationsService.getAll(4);
 }

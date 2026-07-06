@@ -47,7 +47,7 @@
     <span class="eyebrow">What people say</span>
     <h2 class="section-heading">Trusted by engineers and leadership</h2>
     <div class="social-proof__grid">
-      @for (rec of (recommendations$ | async)?.slice(1, 3); track rec.name) {
+      @for (rec of (recommendations$ | async); track rec.name) {
         <app-quote-card [recommendation]="rec" [condensed]="true" />
       }
     </div>
