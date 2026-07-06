@@ -1,0 +1,49 @@
+.mailing-signup {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+}
+
+.mailing-signup__copy {
+  max-width: 480px;
+  margin: 0 auto 24px;
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.mailing-signup__form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  max-width: 440px;
+  margin: 0 auto;
+
+  @media (max-width: 520px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.mailing-signup__field {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.mailing-signup__status {
+  margin: 16px 0 0;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.mailing-signup__status--error {
+  color: var(--error);
+}

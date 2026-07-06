@@ -1,0 +1,46 @@
+<form class="contact-form card" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="field">
+    <label for="name">Name</label>
+    <input id="name" type="text" formControlName="name" placeholder="Your name" />
+    @if (form.controls.name.invalid && form.controls.name.touched) {
+      <span class="field-error">Name is required.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" placeholder="you@email.com" />
+    @if (form.controls.email.invalid && form.controls.email.touched) {
+      <span class="field-error">Enter a valid email address.</span>
+    }
+  </div>
+
+  <div class="field">
+    <label for="engagementType">Type of engagement</label>
+    <select id="engagementType" formControlName="engagementType">
+      @for (option of engagementOptions; track option.value) {
+        <option [value]="option.value">{{ option.label }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="message">Message</label>
+    <textarea id="message" formControlName="message" placeholder="Tell me about the role or project…"></textarea>
+    @if (form.controls.message.invalid && form.controls.message.touched) {
+      <span class="field-error">Message is required.</span>
+    }
+  </div>
+
+  <button type="submit" class="btn btn-primary contact-form__submit" [disabled]="status() === 'submitting'">
+    {{ status() === 'submitting' ? 'Sending…' : 'Send message' }}
+  </button>
+
+  @if (status() === 'success' || status() === 'error') {
+    <p class="contact-form__status" [class.contact-form__status--error]="status() === 'error'">
+      {{ statusMessage() }}
+    </p>
+  }
+
+  <a class="contact-form__resume" href="/assets/momin-imtiaz-resume.pdf" download>Download resume (PDF)</a>
+</form>

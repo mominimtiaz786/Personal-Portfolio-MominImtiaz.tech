@@ -1,0 +1,100 @@
+.about-hero__inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: center;
+
+  @media (max-width: 780px) {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+}
+
+.about-hero__copy h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 1.25rem;
+}
+
+.about-hero__photo img {
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+
+  @media (max-width: 780px) {
+    max-width: 220px;
+  }
+}
+
+.education-card {
+  padding: 28px;
+
+  h3 {
+    margin-bottom: 0.4rem;
+  }
+}
+
+.education-card__degree {
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.education-card__courses {
+  margin: 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skills-group {
+  padding: 22px;
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 0.9rem;
+    color: var(--accent);
+  }
+}
+
+.skills-group__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cert-badge {
+  padding: 22px;
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+}

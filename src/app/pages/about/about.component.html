@@ -1,0 +1,78 @@
+<section class="section about-hero">
+  <div class="container about-hero__inner">
+    <div class="about-hero__copy">
+      <span class="eyebrow">About</span>
+      <h1>From a LUMS classroom project to a national data platform</h1>
+      <p>
+        I'm a software engineer and open-data specialist with 5+ years of experience building
+        national-scale portals and enterprise web applications. I started with a final-year
+        university project modernizing Pakistan's first CKAN-based open data portal, then spent
+        two years at Rolustech building enterprise Angular systems for a US-based logistics
+        platform, and most recently led the CKAN-based National Open Government Data Portal for
+        Jordan's Ministry of Digital Economy &amp; Entrepreneurship — covering 170+ ministries and
+        4,000+ datasets.
+      </p>
+      <p>
+        Outside of client work, I mentor teams on clean code and system design, run coding
+        sessions, and build self-directed automation projects to keep learning by shipping.
+      </p>
+    </div>
+    <div class="about-hero__photo">
+      <img src="/assets/people/momin-avatar.png" alt="Momin Imtiaz" />
+    </div>
+  </div>
+</section>
+
+<section class="section about-education">
+  <div class="container">
+    <h2 class="section-heading">Education</h2>
+    <div class="card education-card">
+      <h3>Lahore University of Management Sciences</h3>
+      <p class="education-card__degree">BS Computer Science &middot; Sept 2017 – June 2022</p>
+      <p class="education-card__courses">
+        Relevant courses: Software Engineering, Internet of Things, Advanced Programming,
+        Machine Learning, Deep Learning, Speech Processing
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section about-skills">
+  <div class="container">
+    <h2 class="section-heading">Skills</h2>
+    <div class="skills-grid">
+      @for (group of skillGroups$ | async; track group.category) {
+        <div class="card skills-group">
+          <h3>{{ group.category }}</h3>
+          <div class="skills-group__tags">
+            @for (item of group.items; track item) {
+              <span class="tag">{{ item }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section about-certs">
+  <div class="container">
+    <h2 class="section-heading">Certifications</h2>
+    <div class="certs-grid">
+      @for (cert of certifications$ | async; track cert.title) {
+        <div class="card cert-badge">
+          <!-- add link only if it exists -->
+          @if (cert.verification_link) {
+            <a href="{{ cert.verification_link }}" target="_blank" rel="noopener noreferrer">
+              <h3>{{ cert.title }}</h3>
+              <p>{{ cert.issuer }}</p>
+            </a>
+          } @else {
+            <h3>{{ cert.title }}</h3>
+            <p>{{ cert.issuer }}</p>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

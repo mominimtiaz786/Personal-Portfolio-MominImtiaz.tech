@@ -1,1 +1,248 @@
-/* You can add global styles to this file, and also import other style files */
+// ---------------------------------------------------------------------------
+// Design tokens
+// ---------------------------------------------------------------------------
+:root,
+:root[data-theme='dark'] {
+  --bg: #0f1117;
+  --surface: #1b1e27;
+  --surface-raised: #22252f;
+  --text-primary: #f2f3f5;
+  --text-secondary: #9ca3af;
+  --border: #2a2d38;
+  --accent: #22c55e;
+  --accent-hover: #34d673;
+  --accent-contrast: #0b1310;
+  --error: #ef4444;
+  --shadow: none;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #fafaf9;
+  --surface: #f4f4f3;
+  --surface-raised: #ffffff;
+  --text-primary: #13151c;
+  --text-secondary: #5b5f6b;
+  --border: #e4e4e2;
+  --accent: #22c55e;
+  --accent-hover: #1fa855;
+  --accent-contrast: #ffffff;
+  --error: #ef4444;
+  --shadow: 0 2px 12px rgba(20, 20, 20, 0.06);
+  color-scheme: light;
+}
+
+// ---------------------------------------------------------------------------
+// Reset / base
+// ---------------------------------------------------------------------------
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Space Grotesk', 'Sora', sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent-hover);
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  padding-left: 1.25em;
+  color: var(--text-secondary);
+}
+
+button {
+  font-family: inherit;
+}
+
+// ---------------------------------------------------------------------------
+// Layout utilities
+// ---------------------------------------------------------------------------
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 72px 0;
+
+  @media (max-width: 640px) {
+    padding: 48px 0;
+  }
+}
+
+.section-heading {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-subheading {
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--accent);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+// ---------------------------------------------------------------------------
+// Buttons
+// ---------------------------------------------------------------------------
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.75em 1.5em;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease, color 0.15s ease;
+  white-space: nowrap;
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-color: var(--accent);
+
+  &:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--accent-contrast);
+  }
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border);
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Cards & tags
+// ---------------------------------------------------------------------------
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25em 0.75em;
+}
+
+// ---------------------------------------------------------------------------
+// Forms
+// ---------------------------------------------------------------------------
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  margin-bottom: 1.25em;
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.7em 0.9em;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.15s ease;
+
+    &:focus {
+      border-color: var(--accent);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .field-error {
+    color: var(--error);
+    font-size: 0.8rem;
+  }
+}

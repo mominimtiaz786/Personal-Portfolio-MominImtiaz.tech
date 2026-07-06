@@ -1,0 +1,12 @@
+<blockquote class="quote-card card" [class.quote-card--condensed]="condensed()">
+  <p class="quote-card__quote">&ldquo;{{ recommendation().quote }}&rdquo;</p>
+  <footer class="quote-card__meta">
+    @if (recommendation().avatar) {
+      <img class="quote-card__avatar" [src]="recommendation().avatar" [alt]="recommendation().name" />
+    }
+    <div class="quote-card__meta-text">
+      <span class="quote-card__name">{{ recommendation().name }}</span>
+      <span class="quote-card__title">{{ recommendation().title }} &#64; {{ recommendation().company }}</span>
+    </div>
+  </footer>
+</blockquote>

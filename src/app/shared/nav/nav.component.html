@@ -1,0 +1,26 @@
+<header class="nav">
+  <div class="container nav__inner">
+    <a routerLink="/" class="nav__brand" (click)="closeMenu()">Momin Imtiaz</a>
+
+    <nav class="nav__links" [class.nav__links--open]="isMenuOpen">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="nav__link--active"
+          class="nav__link"
+          (click)="closeMenu()"
+        >{{ link.label }}</a>
+      }
+      <a routerLink="/hire-me" class="btn btn-primary nav__cta" (click)="closeMenu()">Hire Me</a>
+    </nav>
+
+    <div class="nav__actions">
+      <app-theme-toggle />
+      <button type="button" class="nav__burger" (click)="toggleMenu()" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>

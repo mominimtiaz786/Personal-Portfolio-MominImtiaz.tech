@@ -1,0 +1,86 @@
+<section class="section hire-hero">
+  <div class="container hire-hero__inner">
+    <div class="hire-hero__copy">
+      <span class="eyebrow">Hire Me</span>
+      <h1>Senior engineering help for teams that ship real systems.</h1>
+      <p class="hire-hero__subhead">
+        5+ years building CKAN open-data platforms, enterprise Angular applications, and
+        Python/Django systems for governments and companies. Open to full-time roles and
+        freelance engagements.
+      </p>
+      <div class="hire-hero__forks">
+        <a href="#contact" class="btn btn-primary">Looking to hire full-time?</a>
+        <a href="#contact" class="btn btn-secondary">Need a contractor for a project?</a>
+      </div>
+    </div>
+    <div class="hire-hero__photo">
+      <img src="/assets/people/momin-avatar.png" alt="Momin Imtiaz" />
+    </div>
+  </div>
+</section>
+
+<section class="section hire-proof">
+  <div class="container">
+    <span class="eyebrow">What people say</span>
+    <h2 class="section-heading">Recommendations</h2>
+    <div class="hire-proof__grid">
+      @for (rec of recommendations$ | async; track rec.name) {
+        <app-quote-card [recommendation]="rec" />
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section hire-contact" id="contact">
+  <div class="container">
+    <span class="eyebrow">Get in touch</span>
+    <h2 class="section-heading">Tell me about the role or project</h2>
+    <p class="section-subheading">I typically reply within a couple of business days.</p>
+    <app-contact-form />
+  </div>
+</section>
+
+<section class="section hire-bring">
+  <div class="container">
+    <span class="eyebrow">What I bring</span>
+    <h2 class="section-heading">Why teams bring me in</h2>
+    <div class="hire-bring__grid">
+      @for (item of whatIBring; track item.title) {
+        <div class="card hire-bring__card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section hire-faq">
+  <div class="container">
+    <span class="eyebrow">FAQ</span>
+    <h2 class="section-heading">Common questions</h2>
+    <app-accordion [items]="(faqItems$ | async) ?? []" />
+  </div>
+</section>
+
+<section class="section hire-cta">
+  <div class="container hire-cta__inner">
+    <h2>Still deciding? Let's talk it through.</h2>
+    <a href="#contact" class="btn btn-primary">Contact me</a>
+  </div>
+</section>
+
+<section class="section hire-note">
+  <div class="container hire-note__inner">
+    <span class="eyebrow">A note from me</span>
+    <p>
+      I got into building things seriously during a rough year — behind on my degree, unsure
+      what came next. I started a small side project automating video content, and finishing
+      it end-to-end, badly at first, taught me more than any course had. That's still how I
+      approach engineering: pick something real, ship it, and let the gaps in your knowledge
+      tell you what to learn next. If that's the kind of person you want on your team or your
+      project, I'd love to hear from you.
+    </p>
+    <p class="hire-note__signature">— Momin</p>
+  </div>
+</section>

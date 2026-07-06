@@ -1,0 +1,20 @@
+<div class="accordion">
+  @for (item of items(); track item.question; let i = $index) {
+    <div class="accordion__item card" [class.accordion__item--open]="openIndex() === i">
+      <button
+        type="button"
+        class="accordion__trigger"
+        (click)="toggle(i)"
+        [attr.aria-expanded]="openIndex() === i"
+      >
+        <span>{{ item.question }}</span>
+        <span class="accordion__icon" aria-hidden="true">{{ openIndex() === i ? '−' : '+' }}</span>
+      </button>
+      @if (openIndex() === i) {
+        <div class="accordion__panel">
+          <p>{{ item.answer }}</p>
+        </div>
+      }
+    </div>
+  }
+</div>

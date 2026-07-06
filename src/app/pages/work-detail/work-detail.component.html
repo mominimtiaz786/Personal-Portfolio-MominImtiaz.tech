@@ -1,0 +1,65 @@
+@if (project$ | async; as project) {
+  <section class="section detail-header">
+    <div class="container">
+      <a routerLink="/work" class="detail-header__back">&larr; All work</a>
+      <h1>{{ project.title }}</h1>
+      <div class="detail-header__meta">
+        <span>{{ project.location }}</span>
+        <span class="detail-header__dot">&middot;</span>
+        <span>{{ project.year }}</span>
+      </div>
+      <p class="detail-header__summary">{{ project.summary }}</p>
+    </div>
+  </section>
+
+  <section class="section detail-body">
+    <div class="container detail-body__grid">
+      <div class="detail-body__main">
+        <div class="detail-block">
+          <h2>Role</h2>
+          <p>{{ project.role }}</p>
+        </div>
+        <div class="detail-block">
+          <h2>Impact</h2>
+          <p>{{ project.impact }}</p>
+        </div>
+        <div class="detail-block">
+          <h2>Learning</h2>
+          <p>{{ project.learning }}</p>
+        </div>
+      </div>
+
+      <aside class="detail-body__side">
+        <div class="card detail-thumb-card">
+          <img [src]="project.thumbnail" [alt]="project.title" />
+        </div>
+
+        <div class="card detail-side-card">
+          <h3>Tech stack</h3>
+          <div class="detail-tags">
+            @for (tech of project.tech; track tech) {
+              <span class="tag">{{ tech }}</span>
+            }
+          </div>
+        </div>
+
+        @if (project.links?.length) {
+          <div class="card detail-side-card">
+            <h3>Links</h3>
+            <ul class="detail-links">
+              @for (link of project.links; track link.url) {
+                <li><a [href]="link.url" target="_blank" rel="noopener">{{ link.label }}</a></li>
+              }
+            </ul>
+          </div>
+        }
+      </aside>
+    </div>
+  </section>
+} @else {
+  <section class="section">
+    <div class="container">
+      <p>Project not found. <a routerLink="/work">Back to all work</a></p>
+    </div>
+  </section>
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="400" height="260">
+  <rect width="400" height="260" fill="#1b1e27"/>
+  <rect x="0" y="0" width="400" height="44" fill="#22252f"/>
+  <circle cx="24" cy="22" r="5" fill="#ef4444" opacity="0.7"/>
+  <circle cx="42" cy="22" r="5" fill="#eab308" opacity="0.7"/>
+  <circle cx="60" cy="22" r="5" fill="#22c55e"/>
+  <g fill="none" stroke="#2a2d38" stroke-width="1">
+    <rect x="24" y="68" width="352" height="150" rx="8"/>
+  </g>
+  <g stroke="#22c55e" stroke-width="2" fill="none" opacity="0.8">
+    <path d="M60 190 L110 110 L160 160 L210 100 L260 150 L320 120"/>
+  </g>
+  <g fill="#22c55e">
+    <circle cx="60" cy="190" r="4"/>
+    <circle cx="110" cy="110" r="4"/>
+    <circle cx="160" cy="160" r="4"/>
+    <circle cx="210" cy="100" r="4"/>
+    <circle cx="260" cy="150" r="4"/>
+    <circle cx="320" cy="120" r="4"/>
+  </g>
+  <text x="24" y="248" font-family="monospace" font-size="13" fill="#9ca3af">Open Data Pakistan</text>
+</svg>

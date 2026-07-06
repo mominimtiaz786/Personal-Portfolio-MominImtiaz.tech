@@ -1,0 +1,29 @@
+<div class="mailing-signup">
+  <div class="mailing-signup__copy">
+    <h2>Get updates on what I'm building</h2>
+    <p>Occasional notes on open data, Angular, and shipping real systems. No spam.</p>
+  </div>
+
+  <form class="mailing-signup__form" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="field mailing-signup__field">
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="you@email.com"
+        [attr.aria-invalid]="form.controls.email.invalid && form.controls.email.touched"
+      />
+      @if (form.controls.email.invalid && form.controls.email.touched) {
+        <span class="field-error">Enter a valid email address.</span>
+      }
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="status() === 'submitting'">
+      {{ status() === 'submitting' ? 'Subscribing…' : 'Subscribe' }}
+    </button>
+  </form>
+
+  @if (status() === 'success' || status() === 'error') {
+    <p class="mailing-signup__status" [class.mailing-signup__status--error]="status() === 'error'">
+      {{ statusMessage() }}
+    </p>
+  }
+</div>

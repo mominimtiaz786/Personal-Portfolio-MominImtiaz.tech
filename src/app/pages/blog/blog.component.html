@@ -1,0 +1,20 @@
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Blog</span>
+    <h1 class="section-heading">Writing</h1>
+
+    @if ((posts$ | async)?.length) {
+      <div class="blog-grid">
+        @for (post of posts$ | async; track post.slug) {
+          <a class="card blog-card" [routerLink]="['/blog', post.slug]">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.excerpt }}</p>
+            <span class="blog-card__date">{{ post.date }}</span>
+          </a>
+        }
+      </div>
+    } @else {
+      <p class="blog-empty">Posts coming soon.</p>
+    }
+  </div>
+</section>

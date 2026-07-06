@@ -1,0 +1,33 @@
+.contact-form {
+  padding: 32px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.contact-form__submit {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.contact-form__status {
+  margin: 16px 0 0;
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-align: center;
+}
+
+.contact-form__status--error {
+  color: var(--error);
+}
+
+.contact-form__resume {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+
+  &:hover {
+    color: var(--accent);
+  }
+}

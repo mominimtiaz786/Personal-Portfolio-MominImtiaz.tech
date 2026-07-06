@@ -1,0 +1,16 @@
+@if (post$ | async; as post) {
+  <section class="section">
+    <div class="container blog-detail">
+      <a routerLink="/blog" class="blog-detail__back">&larr; All posts</a>
+      <h1>{{ post.title }}</h1>
+      <span class="blog-detail__date">{{ post.date }}</span>
+      <div class="blog-detail__content">{{ post.content }}</div>
+    </div>
+  </section>
+} @else {
+  <section class="section">
+    <div class="container">
+      <p>Post not found. <a routerLink="/blog">Back to blog</a></p>
+    </div>
+  </section>
+}

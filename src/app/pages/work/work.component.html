@@ -1,0 +1,20 @@
+<section class="section work-header">
+  <div class="container">
+    <span class="eyebrow">Work</span>
+    <h1 class="section-heading">Projects</h1>
+    <p class="section-subheading">
+      National-scale open-data platforms, enterprise logistics software, and self-directed
+      automation projects.
+    </p>
+  </div>
+</section>
+
+<section class="section work-grid-section">
+  <div class="container">
+    <div class="work-grid">
+      @for (project of projects$ | async; track project.slug) {
+        <app-project-card [project]="project" />
+      }
+    </div>
+  </div>
+</section>

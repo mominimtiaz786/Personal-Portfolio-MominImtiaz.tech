@@ -1,0 +1,18 @@
+.stat-block {
+  text-align: center;
+  padding: 20px 12px;
+}
+
+.stat-block__value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.4em;
+}
+
+.stat-block__label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}

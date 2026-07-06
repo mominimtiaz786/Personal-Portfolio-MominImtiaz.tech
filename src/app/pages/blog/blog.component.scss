@@ -1,0 +1,34 @@
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 2rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.blog-card {
+  padding: 24px;
+  color: var(--text-primary);
+
+  h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &:hover {
+    border-color: var(--accent);
+  }
+}
+
+.blog-card__date {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.blog-empty {
+  margin-top: 2rem;
+  color: var(--text-secondary);
+}
