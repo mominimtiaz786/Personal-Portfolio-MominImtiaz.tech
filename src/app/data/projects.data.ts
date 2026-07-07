@@ -86,4 +86,25 @@ export const PROJECTS: Project[] = [
       },
     ]
   },
+  {
+    slug: 'mominimtiaz-tech-personal-portfolio-website',
+    title: 'MominImtiaz.tech — Personal Portfolio Website',
+    location: 'Self-initiated',
+    year: '2026',
+    summary:
+      'Personal portfolio website showcasing projects, skills, and experience.',
+    role: 'Sole developer — concept, design, automation, and deployment.',
+    impact:
+      'Provides a professional online presence and serves as a platform to share work and achievements, and regular blog posts on software engineering and open data.',
+    learning:
+      'Full-stack development, modern web technologies, and personal branding through a digital platform.',
+    tech: ['Angular', 'TypeScript', 'RxJS', 'SCSS', 'HTML5', 'Responsive Design', 'SEO Optimization', 'Content Management', 'Blogging Platform', 'Analytics Integration', 'NestJs', 'Node.js', 'Express', 'MongoDB', 'REST APIs', 'Deployment and Hosting'],
+    thumbnail: '/assets/projects/mominimtiaz-tech.png',
+    links: [
+      {
+        label: 'Website Link',
+        url: 'https://mominimtiaz.tech',
+      },
+    ]
+  },
 ];

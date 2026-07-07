@@ -48,7 +48,7 @@
     <h2 class="section-heading">Trusted by engineers and leadership</h2>
     <div class="social-proof__grid">
       @for (rec of (recommendations$ | async); track rec.name) {
-        <app-quote-card [recommendation]="rec" [condensed]="true" />
+        <app-quote-card [recommendation]="rec" [condensed]="false" />
       }
     </div>
   </div>
