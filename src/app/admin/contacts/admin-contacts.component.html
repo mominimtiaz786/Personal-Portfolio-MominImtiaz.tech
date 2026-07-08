@@ -1,0 +1,41 @@
+<div class="list-header">
+  <h1>Contacts</h1>
+</div>
+
+@if (loading()) {
+  <p>Loading…</p>
+} @else {
+  <div class="table-wrap">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>From</th>
+          <th>Type</th>
+          <th>Message</th>
+          <th>Received</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (submission of submissions(); track submission.id) {
+          <tr [class.contacts-row--unread]="!submission.read">
+            <td>
+              <div>{{ submission.name }}</div>
+              <div class="contacts-email">{{ submission.email }}</div>
+            </td>
+            <td>{{ submission.engagementType }}</td>
+            <td class="contacts-message">{{ submission.message }}</td>
+            <td>{{ submission.createdAt | date: 'mediumDate' }}</td>
+            <td>
+              @if (!submission.read) {
+                <button type="button" class="btn btn-secondary btn-sm" (click)="markAsRead(submission)">Mark as read</button>
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr><td colspan="5">No submissions yet.</td></tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

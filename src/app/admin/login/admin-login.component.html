@@ -1,0 +1,29 @@
+<div class="admin-login">
+  <form class="admin-login__form card" [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Admin login</h1>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" placeholder="you@email.com" />
+      @if (form.controls.email.invalid && form.controls.email.touched) {
+        <span class="field-error">Enter a valid email address.</span>
+      }
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" placeholder="••••••••" />
+      @if (form.controls.password.invalid && form.controls.password.touched) {
+        <span class="field-error">Password is required.</span>
+      }
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="status() === 'submitting'">
+      {{ status() === 'submitting' ? 'Signing in…' : 'Sign in' }}
+    </button>
+
+    @if (status() === 'error') {
+      <p class="admin-login__error">Invalid credentials. Try again.</p>
+    }
+  </form>
+</div>

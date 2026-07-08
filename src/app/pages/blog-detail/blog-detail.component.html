@@ -1,11 +1,16 @@
 @if (post$ | async; as post) {
   <section class="section">
-    <div class="container blog-detail">
+    <article class="container blog-detail">
       <a routerLink="/blog" class="blog-detail__back">&larr; All posts</a>
       <h1>{{ post.title }}</h1>
-      <span class="blog-detail__date">{{ post.date }}</span>
-      <div class="blog-detail__content">{{ post.content }}</div>
-    </div>
+      <time class="blog-detail__date">{{ (post.publishedAt ?? post.date) | date: 'mediumDate' }}</time>
+      @if (post.coverImage) {
+        <img class="blog-detail__cover" [src]="imageUrl(post.coverImage)" [alt]="post.title" />
+      }
+      @if (post.body) {
+        <div class="rich-text-content" [innerHTML]="sanitize(post.body)"></div>
+      }
+    </article>
   </section>
 } @else {
   <section class="section">

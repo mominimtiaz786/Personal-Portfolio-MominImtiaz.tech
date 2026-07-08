@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { BlogService } from '../../core/blog.service';
+import { resolveImageUrl } from '../../shared/utils/resolve-image-url';
 
 @Component({
   selector: 'app-blog',
@@ -12,4 +13,8 @@ import { BlogService } from '../../core/blog.service';
 export class BlogComponent {
   private readonly blogService = inject(BlogService);
   readonly posts$ = this.blogService.getAll();
+
+  imageUrl(path: string): string {
+    return resolveImageUrl(path);
+  }
 }

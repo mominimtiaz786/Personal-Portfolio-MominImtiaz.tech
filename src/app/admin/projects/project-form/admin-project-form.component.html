@@ -1,0 +1,125 @@
+<div class="list-header">
+  <h1>{{ isEdit ? 'Edit Project' : 'New Project' }}</h1>
+  <a routerLink="/admin/projects" class="btn btn-secondary">Back to list</a>
+</div>
+
+@if (loading()) {
+  <p>Loading…</p>
+} @else {
+  <form class="project-form" [formGroup]="form" (ngSubmit)="save()">
+    <div class="field">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title" />
+    </div>
+
+    <div class="field">
+      <label for="slug">Slug</label>
+      <input id="slug" type="text" formControlName="slug" (input)="onSlugInput()" />
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="location">Location</label>
+        <input id="location" type="text" formControlName="location" />
+      </div>
+      <div class="field">
+        <label for="year">Year</label>
+        <input id="year" type="text" formControlName="year" placeholder="e.g. 2024–2026" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="summary">Summary</label>
+      <textarea id="summary" formControlName="summary"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="role">Role</label>
+      <textarea id="role" formControlName="role"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="impact">Impact</label>
+      <textarea id="impact" formControlName="impact"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="learning">Learning</label>
+      <textarea id="learning" formControlName="learning"></textarea>
+    </div>
+
+    <div class="field">
+      <label>Tech stack</label>
+      <div class="tag-input">
+        <input
+          type="text"
+          [(ngModel)]="tagInput"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Type a tag, press Enter"
+          (keydown.enter)="$event.preventDefault(); addTag()"
+        />
+      </div>
+      <div class="tag-list">
+        @for (tag of techStack(); track tag) {
+          <button type="button" class="tag tag--removable" (click)="removeTag(tag)">{{ tag }} &times;</button>
+        }
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Links</label>
+      <div class="links-list" formArrayName="links">
+        @for (link of links.controls; track link; let i = $index) {
+          <div class="link-row" [formGroupName]="i">
+            <input type="text" formControlName="label" placeholder="Label" />
+            <input type="text" formControlName="url" placeholder="https://…" />
+            <button type="button" class="btn btn-secondary btn-sm" (click)="removeLink(i)">Remove</button>
+          </div>
+        }
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm" (click)="addLink()">Add link</button>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Card thumbnail</label>
+        @if (form.controls.thumbnail.value; as thumb) {
+          <img class="image-preview" [src]="imageUrl(thumb)" alt="Thumbnail preview" />
+        }
+        <input type="file" accept="image/*" (change)="uploadThumbnail($event)" [disabled]="thumbnailUploading()" />
+        @if (thumbnailUploading()) {
+          <span class="upload-status">Uploading…</span>
+        }
+      </div>
+
+      <div class="field">
+        <label>Featured image</label>
+        @if (form.controls.featuredImage.value; as featured) {
+          <img class="image-preview" [src]="imageUrl(featured)" alt="Featured image preview" />
+        }
+        <input type="file" accept="image/*" (change)="uploadFeaturedImage($event)" [disabled]="featuredImageUploading()" />
+        @if (featuredImageUploading()) {
+          <span class="upload-status">Uploading…</span>
+        }
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Full story</label>
+      <app-rich-text-editor
+        [value]="form.controls.fullStory.value"
+        (valueChange)="form.controls.fullStory.setValue($event)"
+        placeholder="Write the full case study…"
+      />
+    </div>
+
+    <div class="field field--inline">
+      <label for="published">Published</label>
+      <input id="published" type="checkbox" formControlName="published" />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="saving()">
+      {{ saving() ? 'Saving…' : 'Save project' }}
+    </button>
+  </form>
+}

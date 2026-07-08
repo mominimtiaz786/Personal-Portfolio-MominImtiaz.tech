@@ -1,0 +1,21 @@
+<div class="rte">
+  <div class="rte__toolbar">
+    <button type="button" class="rte__btn" [class.rte__btn--active]="isActive('bold')" (click)="toggleBold()" title="Bold">B</button>
+    <button type="button" class="rte__btn rte__btn--italic" [class.rte__btn--active]="isActive('italic')" (click)="toggleItalic()" title="Italic">I</button>
+    <span class="rte__divider"></span>
+    <button type="button" class="rte__btn" [class.rte__btn--active]="isActive('heading', { level: 2 })" (click)="toggleHeading(2)" title="Heading 2">H2</button>
+    <button type="button" class="rte__btn" [class.rte__btn--active]="isActive('heading', { level: 3 })" (click)="toggleHeading(3)" title="Heading 3">H3</button>
+    <span class="rte__divider"></span>
+    <button type="button" class="rte__btn" [class.rte__btn--active]="isActive('bulletList')" (click)="toggleBulletList()" title="Bullet list">&bull; List</button>
+    <button type="button" class="rte__btn" [class.rte__btn--active]="isActive('orderedList')" (click)="toggleOrderedList()" title="Ordered list">1. List</button>
+    <button type="button" class="rte__btn" [class.rte__btn--active]="isActive('blockquote')" (click)="toggleBlockquote()" title="Blockquote">&ldquo;&rdquo;</button>
+    <span class="rte__divider"></span>
+    <button type="button" class="rte__btn" [class.rte__btn--active]="isActive('link')" (click)="setLink()" title="Link">Link</button>
+    <button type="button" class="rte__btn" (click)="triggerImagePicker()" title="Insert image" [disabled]="uploading">
+      {{ uploading ? 'Uploading…' : 'Image' }}
+    </button>
+    <input #fileInput type="file" accept="image/*" class="rte__file-input" (change)="onImageSelected($event)" />
+  </div>
+
+  <div #editorElement class="rte__editor rich-text-content" (click)="focusIfEmptyAreaClicked($event)"></div>
+</div>

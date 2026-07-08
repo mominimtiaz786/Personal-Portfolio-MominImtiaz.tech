@@ -1,5 +1,9 @@
-<app-nav />
+@if (!isAdminRoute()) {
+  <app-nav />
+}
 <main>
   <router-outlet />
 </main>
-<app-footer />
+@if (!isAdminRoute()) {
+  <app-footer />
+}

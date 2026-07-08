@@ -1,6 +1,7 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Project } from '../../models/project.model';
+import { resolveImageUrl } from '../utils/resolve-image-url';
 
 @Component({
   selector: 'app-project-card',
@@ -10,4 +11,8 @@ import { Project } from '../../models/project.model';
 })
 export class ProjectCardComponent {
   readonly project = input.required<Project>();
+
+  get thumbnailUrl(): string {
+    return resolveImageUrl(this.project().thumbnail);
+  }
 }

@@ -1,0 +1,29 @@
+<h1>Dashboard</h1>
+
+@if (loading()) {
+  <p>Loading…</p>
+} @else if (stats()) {
+  @let s = stats()!;
+  <div class="stats-grid">
+    <div class="card stat-card">
+      <span class="stat-card__value">{{ s.totalProjects }}</span>
+      <span class="stat-card__label">Projects</span>
+    </div>
+    <div class="card stat-card">
+      <span class="stat-card__value">{{ s.totalPublishedPosts }}</span>
+      <span class="stat-card__label">Published posts</span>
+    </div>
+    <div class="card stat-card">
+      <span class="stat-card__value">{{ s.totalDraftPosts }}</span>
+      <span class="stat-card__label">Draft posts</span>
+    </div>
+    <div class="card stat-card">
+      <span class="stat-card__value">{{ s.totalContacts }}</span>
+      <span class="stat-card__label">Contact submissions ({{ s.unreadContacts }} unread)</span>
+    </div>
+    <div class="card stat-card">
+      <span class="stat-card__value">{{ s.totalSubscribers }}</span>
+      <span class="stat-card__label">Subscribers</span>
+    </div>
+  </div>
+}

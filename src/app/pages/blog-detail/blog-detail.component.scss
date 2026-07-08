@@ -2,6 +2,12 @@
   max-width: 720px;
 }
 
+.blog-detail__cover {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
 .blog-detail__back {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -18,9 +24,4 @@
   color: var(--text-secondary);
   font-size: 0.9rem;
   margin-bottom: 2rem;
-}
-
-.blog-detail__content {
-  color: var(--text-primary);
-  white-space: pre-wrap;
 }

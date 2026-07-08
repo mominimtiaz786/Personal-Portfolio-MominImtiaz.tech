@@ -1,0 +1,29 @@
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 24px;
+}
+
+.admin-login__form {
+  width: 100%;
+  max-width: 360px;
+  padding: 32px;
+
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+.admin-login__error {
+  color: var(--error);
+  font-size: 0.85rem;
+  margin: 1rem 0 0;
+}
