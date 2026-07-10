@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+.contacts-email {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.contacts-message {
+  max-width: 320px;
+  white-space: normal;
+}
+
+.contacts-row--unread {
+  td:first-child {
+    font-weight: 600;
+    box-shadow: inset 3px 0 0 var(--accent);
+  }
+}

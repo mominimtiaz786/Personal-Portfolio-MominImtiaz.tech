@@ -1,6 +1,6 @@
 <a class="project-card card" [routerLink]="['/work', project().slug]">
   <div class="project-card__thumb">
-    <img [src]="project().thumbnail" [alt]="project().title" loading="lazy" />
+    <img [src]="thumbnailUrl" [alt]="project().title" loading="lazy" />
   </div>
   <div class="project-card__body">
     <h3 class="project-card__title">{{ project().title }}</h3>

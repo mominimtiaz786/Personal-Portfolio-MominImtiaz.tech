@@ -1,0 +1,78 @@
+.rte {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.rte__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-raised);
+}
+
+.rte__btn {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0.4em 0.7em;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    color: var(--text-primary);
+    border-color: var(--border);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+}
+
+.rte__btn--italic {
+  font-style: italic;
+}
+
+.rte__btn--active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+.rte__divider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--border);
+  margin: 0 4px;
+}
+
+.rte__file-input {
+  display: none;
+}
+
+.rte__editor {
+  padding: 16px;
+  min-height: 260px;
+  cursor: text;
+
+  .tiptap {
+    min-height: 228px;
+    outline: none;
+  }
+
+  .is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    color: var(--text-secondary);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
+}

@@ -7,9 +7,26 @@
       <div class="blog-grid">
         @for (post of posts$ | async; track post.slug) {
           <a class="card blog-card" [routerLink]="['/blog', post.slug]">
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.excerpt }}</p>
-            <span class="blog-card__date">{{ post.date }}</span>
+            <div class="blog-card__thumb">
+              @if (post.coverImage) {
+                <img [src]="imageUrl(post.coverImage)" [alt]="post.title" loading="lazy" />
+              } @else {
+                <div class="blog-card__placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 4h16v16H4z" stroke-linejoin="round" />
+                    <path d="M4 15l4.5-4.5 3 3L17.5 8 20 10.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="8.5" cy="8" r="1.25" />
+                  </svg>
+                </div>
+              }
+            </div>
+            <div class="blog-card__body">
+              <h3>{{ post.title }}</h3>
+              <p>{{ post.excerpt }}</p>
+              <span class="blog-card__date">
+                {{ post.date | date:'MMM d, y h:mm a' }}
+              </span>
+            </div>
           </a>
         }
       </div>

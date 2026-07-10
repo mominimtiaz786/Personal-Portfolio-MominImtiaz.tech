@@ -1,0 +1,28 @@
+.blog-form {
+  max-width: 720px;
+}
+
+.field--inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6em;
+
+  input[type='checkbox'] {
+    width: auto;
+  }
+}
+
+.image-preview {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 0.6em;
+}
+
+.upload-status {
+  display: inline-block;
+  margin-top: 0.4em;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}

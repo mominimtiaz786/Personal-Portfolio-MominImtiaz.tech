@@ -1,0 +1,17 @@
+<div class="admin-layout">
+  <aside class="admin-layout__sidebar">
+    <div class="admin-layout__brand">Admin</div>
+    <nav class="admin-layout__nav">
+      <a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/admin/projects" routerLinkActive="active">Projects</a>
+      <a routerLink="/admin/blog" routerLinkActive="active">Blog Posts</a>
+      <a routerLink="/admin/contacts" routerLinkActive="active">Contacts</a>
+      <a routerLink="/admin/subscribers" routerLinkActive="active">Subscribers</a>
+    </nav>
+    <button type="button" class="btn btn-secondary admin-layout__logout" (click)="logout()">Log out</button>
+  </aside>
+
+  <main class="admin-layout__content">
+    <router-outlet />
+  </main>
+</div>

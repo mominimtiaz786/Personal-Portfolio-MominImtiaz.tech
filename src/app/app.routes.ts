@@ -15,5 +15,9 @@ export const routes: Routes = [
   { path: 'hire-me', component: HireMeComponent, title: 'Hire Me — Momin Imtiaz' },
   { path: 'blog', component: BlogComponent, title: 'Blog — Momin Imtiaz' },
   { path: 'blog/:slug', component: BlogDetailComponent, title: 'Blog — Momin Imtiaz' },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.routes').then((m) => m.adminRoutes),
+  },
   { path: '**', redirectTo: '' },
 ];

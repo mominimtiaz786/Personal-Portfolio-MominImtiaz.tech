@@ -1,0 +1,54 @@
+<div class="list-header">
+  <h1>{{ isEdit ? 'Edit Post' : 'New Post' }}</h1>
+  <a routerLink="/admin/blog" class="btn btn-secondary">Back to list</a>
+</div>
+
+@if (loading()) {
+  <p>Loading…</p>
+} @else {
+  <form class="blog-form" [formGroup]="form" (ngSubmit)="save()">
+    <div class="field">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title" />
+    </div>
+
+    <div class="field">
+      <label for="slug">Slug</label>
+      <input id="slug" type="text" formControlName="slug" (input)="onSlugInput()" />
+    </div>
+
+    <div class="field">
+      <label for="excerpt">Excerpt</label>
+      <textarea id="excerpt" formControlName="excerpt"></textarea>
+    </div>
+
+    <div class="field">
+      <label>Cover image</label>
+      @if (form.controls.coverImage.value; as cover) {
+        <img class="image-preview" [src]="imageUrl(cover)" alt="Cover preview" />
+      }
+      <input type="file" accept="image/*" (change)="uploadCoverImage($event)" [disabled]="coverUploading()" />
+      @if (coverUploading()) {
+        <span class="upload-status">Uploading…</span>
+      }
+    </div>
+
+    <div class="field">
+      <label>Body</label>
+      <app-rich-text-editor
+        [value]="form.controls.body.value"
+        (valueChange)="form.controls.body.setValue($event)"
+        placeholder="Write the post…"
+      />
+    </div>
+
+    <div class="field field--inline">
+      <label for="published">Published</label>
+      <input id="published" type="checkbox" formControlName="published" />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="saving()">
+      {{ saving() ? 'Saving…' : 'Save post' }}
+    </button>
+  </form>
+}

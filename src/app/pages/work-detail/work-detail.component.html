@@ -27,12 +27,20 @@
           <h2>Learning</h2>
           <p>{{ project.learning }}</p>
         </div>
+
+        @if (project.fullStory) {
+          <section class="full-story">
+            <div class="rich-text-content" [innerHTML]="sanitize(project.fullStory)"></div>
+          </section>
+        }
       </div>
 
       <aside class="detail-body__side">
-        <div class="card detail-thumb-card">
-          <img [src]="project.thumbnail" [alt]="project.title" />
-        </div>
+        @if (heroImage(project); as hero) {
+          <div class="card detail-thumb-card">
+            <img [src]="hero" [alt]="project.title" />
+          </div>
+        }
 
         <div class="card detail-side-card">
           <h3>Tech stack</h3>
