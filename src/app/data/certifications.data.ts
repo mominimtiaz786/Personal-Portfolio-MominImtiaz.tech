@@ -31,4 +31,19 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: 'University of Michigan (Coursera)',
     verification_link: 'https://www.coursera.org/account/accomplishments/verify/TGBNL7CA9AFB'
   },
+  { 
+    title: 'Associate AI Engineer for Developers', 
+    issuer: 'DataCamp',
+    verification_link: 'https://www.datacamp.com/statement-of-accomplishment/track/24d0badc5b36f5f841071450d14387b52b229a2e' 
+  },
+  { 
+    title: 'Developing AI Applications', 
+    issuer: 'DataCamp',
+    verification_link: 'https://www.datacamp.com/statement-of-accomplishment/track/57181dd5b05806e2a17faaca2277f191d4c110e2' 
+  },
+  { 
+    title: 'OpenAI Fundamentals', 
+    issuer: 'DataCamp',
+    verification_link: 'https://www.datacamp.com/statement-of-accomplishment/track/4c80a78a466c8f577b84abd5a5a4bcbef5ea78eb' 
+  },
 ];
